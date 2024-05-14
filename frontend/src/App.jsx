@@ -1,6 +1,5 @@
 import "./style/style.scss";
 import priceData from "./assets/priceData.json";
-import { useEffect } from "react";
 
 const clickHandle = (e) => {
   const itemName = e.target.className.split(" ")[2];
