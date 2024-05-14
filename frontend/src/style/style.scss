@@ -82,6 +82,26 @@ section {
       width: 50%;
       background-color: black;
       border-radius: 10px;
+
+      > table {
+        width: 100%;
+
+        td {
+          color: white;
+        }
+
+        > thead {
+          color: white;
+        }
+        tr {
+          td {
+            padding: 10px;
+            text-transform: uppercase;
+            width: 25%;
+            text-align: center;
+          }
+        }
+      }
     }
   }
 }
