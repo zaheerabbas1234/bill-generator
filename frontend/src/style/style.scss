@@ -13,9 +13,10 @@ body {
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #191654,
+    #f8f8f8,
     #43c6ac
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: hidden;
 }
 
 section {
@@ -82,6 +83,7 @@ section {
       width: 50%;
       background-color: black;
       border-radius: 10px;
+      overflow-x: auto;
 
       > table {
         width: 100%;

@@ -16,21 +16,33 @@ const clickHandle = (e) => {
 const generateBill = () => {
   const billData = document.querySelector(".billData");
   billData.innerHTML = ""; // Clear previous content
+  let totalPrice = 0;
   Object.entries(priceData).forEach(([item, data], index) => {
     const [count, price] = data;
     if (count > 0) {
       // Only add to bill if count is greater than 0
-      const totalPrice = count * price;
+      const totalPriceForItem = count * price;
+      totalPrice += totalPriceForItem;
       const row = `
-        <tr key="${item}">
+        <tr key="">
           <td>${index + 1}</td>
           <td>${item}</td>
-          <td>${count}</td>
-          <td>${totalPrice}</td>
+          <td>${priceData[item][0]}</td>
+          <td>${priceData[item][1]}</td>
         </tr>`;
       billData.insertAdjacentHTML("beforeend", row);
     }
   });
+
+  // Add the total row
+  const totalRow = `
+    <tr>
+      <td></td>
+      <td><strong>Total:</strong></td>
+      <td></td>
+      <td>${totalPrice}</td>
+    </tr>`;
+  billData.insertAdjacentHTML("beforeend", totalRow);
 };
 
 const App = () => {
