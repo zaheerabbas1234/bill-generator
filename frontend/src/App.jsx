@@ -8,6 +8,8 @@ const clickHandle = (e) => {
     priceData[itemName][0]++;
     generateBill();
     console.log(priceData[itemName]);
+  } else if (e.target.className.includes("billGeneratorButton")) {
+    window.print();
   } else {
     console.log("Item not found in priceData");
   }
@@ -24,7 +26,7 @@ const generateBill = () => {
       const totalPriceForItem = count * price;
       totalPrice += totalPriceForItem;
       const row = `
-        <tr key="">
+        <tr key="${index}">
           <td>${index + 1}</td>
           <td>${item}</td>
           <td>${priceData[item][0]}</td>
@@ -61,6 +63,9 @@ const App = () => {
                 {item}
               </button>
             ))}
+            <button className="billGeneratorButton" onClick={clickHandle}>
+              Generate Bill
+            </button>
           </div>
           <div className="display"></div>
         </div>
